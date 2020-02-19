@@ -1,0 +1,5 @@
+street 1$10 miles$light traffic$its a cool street$light construction
+street 2$20 miles$heavy traffic$note$no construction
+-----
+street 3$30 miles$no traffic$note$no construction
+street 4$40 miles$light traffic$note$heavy construction

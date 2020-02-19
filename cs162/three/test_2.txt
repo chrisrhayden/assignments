@@ -1,0 +1,38 @@
+e
+loops
+it goos
+forever
+loops
+what is a while
+
+loops
+what is a for
+and loop that can iterate for x amount of times
+loops
+what dose continue do
+
+conditionals
+what is ||
+logical or
+conditionals
+what is &&
+logical and
+conditionals
+what is !
+logical not
+functions
+what is a function for
+grouping code in to a repeatable block
+END
+v
+
+
+
+
+
+
+
+
+
+
+y

@@ -1,0 +1,71 @@
+#include <cstring>
+#include <iostream>
+
+#include "questions.h"
+
+using namespace std;
+
+Question::Question() {
+    question_num = 0;
+    subject[0] = '\0';
+    text[0] = '\0';
+    date_completed[0] = '\0';
+}
+
+void Question::read_in_question(int number) {
+    question_num = number;
+
+    cout << "pleas give a subject\n -> ";
+    cin.get(subject, FEILD, '\n');
+    cin.clear();
+    cin.ignore(FEILD, '\n');
+
+    cout << "pleas give question text\n -> ";
+    cin.get(text, FEILD, '\n');
+    cin.clear();
+    cin.ignore(FEILD, '\n');
+
+    cout << "pleas give completion date\n -> ";
+    cin.get(date_completed, FEILD, '\n');
+    cin.clear();
+    cin.ignore(FEILD, '\n');
+}
+
+void Question::display() {
+    cout << "Number: " << question_num << "\nsubject: " << subject
+         << "\nQuestion: " << text << "\ncompleted on " << date_completed;
+}
+
+bool Question::compare_subject(char to_compare[]) {
+    return strcmp(subject, to_compare) == 0;
+}
+
+QuestionList::QuestionList() {
+    list = NULL;
+    length = 0;
+    max_length = 0;
+}
+
+QuestionList::~QuestionList() { delete list; }
+
+void QuestionList::read_in_all_questions() {
+    int amount = 0;
+    cout << "how many questions will you enter\n -> ";
+
+    cin >> amount;
+    cin.ignore(FEILD, '\n');
+
+    list = new Question[amount];
+
+    for (int i = 0; i < amount; ++i) {
+        list[i].read_in_question(i + 1);
+        ++length;
+    }
+}
+
+void QuestionList::display_all() {
+    for (int i = 0; i < length; ++i) {
+        list[i].display();
+        cout << endl;
+    }
+}

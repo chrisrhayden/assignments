@@ -1,0 +1,8 @@
+1$loops$it goos$forever
+2$loops$what is a while$
+3$loops$what is a for$and loop that can iterate for x amount of times
+4$loops$what dose continue do$
+5$conditionals$what is ||$logical or
+6$conditionals$what is &&$logical and
+7$conditionals$what is !$logical not
+8$functions$what is a function for$grouping code in to a repeatable block

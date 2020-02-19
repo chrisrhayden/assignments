@@ -1,0 +1,12 @@
+port=1194
+
+domain-needed
+bogus-priv
+strict-order
+
+expand-hosts
+
+listen-address=127.0.0.1
+listen-address=192.168.10.4
+
+domain=Monolith

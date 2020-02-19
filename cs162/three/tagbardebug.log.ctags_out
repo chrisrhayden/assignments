@@ -1,0 +1,37 @@
+  Option: --language-force=c++
+  Option: --c++-kinds=hdpgetncsufmv
+Initialize parser: C++
+Initialize parser: QtMoc
+Reading command line arguments
+OPENING /tmp/nvimkIDIL2/3.cpp as C++ language file [new]
+Initialize parser: CPreProcessor
+check_file_handle_and_more_text_for_a_long_function	/tmp/nvimkIDIL2/3.cpp	/^bool check_file_handle_and_more_text_for_a_long_function(ifstream &to_check);$/;"	p	line:21	file:	signature:(ifstream & to_check)
+open_read_file	/tmp/nvimkIDIL2/3.cpp	/^bool open_read_file(char data_path[], ifstream &read_handle);$/;"	p	line:22	file:	signature:(char data_path[],ifstream & read_handle)
+run_logic	/tmp/nvimkIDIL2/3.cpp	/^bool run_logic();$/;"	p	line:23	file:	signature:()
+display_menu	/tmp/nvimkIDIL2/3.cpp	/^char display_menu();$/;"	p	line:24	file:	signature:()
+main_menu	/tmp/nvimkIDIL2/3.cpp	/^char main_menu();$/;"	p	line:25	file:	signature:()
+save_menu	/tmp/nvimkIDIL2/3.cpp	/^char save_menu();$/;"	p	line:26	file:	signature:()
+make_questions	/tmp/nvimkIDIL2/3.cpp	/^int make_questions(Question fill[]);$/;"	p	line:27	file:	signature:(Question fill[])
+read_questions	/tmp/nvimkIDIL2/3.cpp	/^int read_questions(ifstream &read_handle, Question fill[]);$/;"	p	line:28	file:	signature:(ifstream & read_handle,Question fill[])
+close_files	/tmp/nvimkIDIL2/3.cpp	/^void close_files(FileHandles &handles);$/;"	p	line:29	file:	signature:(FileHandles & handles)
+display_loop	/tmp/nvimkIDIL2/3.cpp	/^void display_loop(char display_type, char subject[], int question_amount,$/;"	p	line:30	file:	signature:(char display_type,char subject[],int question_amount,Question questions[])
+question_menu	/tmp/nvimkIDIL2/3.cpp	/^void question_menu();$/;"	p	line:32	file:	signature:()
+safe_write	/tmp/nvimkIDIL2/3.cpp	/^void safe_write(FileHandles &handles, int question_amount,$/;"	p	line:33	file:	signature:(FileHandles & handles,int question_amount,Question questions[])
+subject_menu	/tmp/nvimkIDIL2/3.cpp	/^void subject_menu(int size, char subject[]);$/;"	p	line:35	file:	signature:(int size,char subject[])
+write_into_file	/tmp/nvimkIDIL2/3.cpp	/^void write_into_file(ofstream &write_handle, int questions_size,$/;"	p	line:36	file:	signature:(ofstream & write_handle,int questions_size,Question questions[])
+another_main	/tmp/nvimkIDIL2/3.cpp	/^int another_main(int fuck) { return fuck * fuck; }$/;"	f	line:39	signature:(int fuck)
+main	/tmp/nvimkIDIL2/3.cpp	/^int main()$/;"	f	line:42	signature:()
+run_logic	/tmp/nvimkIDIL2/3.cpp	/^bool run_logic()$/;"	f	line:73	signature:()
+main_menu	/tmp/nvimkIDIL2/3.cpp	/^char main_menu()$/;"	f	line:131	signature:()
+save_menu	/tmp/nvimkIDIL2/3.cpp	/^char save_menu()$/;"	f	line:152	signature:()
+question_menu	/tmp/nvimkIDIL2/3.cpp	/^void question_menu()$/;"	f	line:172	signature:()
+make_questions	/tmp/nvimkIDIL2/3.cpp	/^int make_questions(Question fill[])$/;"	f	line:181	signature:(Question fill[])
+read_questions	/tmp/nvimkIDIL2/3.cpp	/^int read_questions(ifstream &read_handle, Question fill[])$/;"	f	line:236	signature:(ifstream & read_handle,Question fill[])
+close_files	/tmp/nvimkIDIL2/3.cpp	/^void close_files(FileHandles &handles)$/;"	f	line:274	signature:(FileHandles & handles)
+check_file_handle_and_more_text_for_a_long_function	/tmp/nvimkIDIL2/3.cpp	/^bool check_file_handle_and_more_text_for_a_long_function(ifstream &to_check)$/;"	f	line:281	signature:(ifstream & to_check)
+open_read_file	/tmp/nvimkIDIL2/3.cpp	/^bool open_read_file(char data_path[], ifstream &read_handle)$/;"	f	line:292	signature:(char data_path[],ifstream & read_handle)
+safe_write	/tmp/nvimkIDIL2/3.cpp	/^void safe_write(FileHandles &handles, int question_amount, Question questions[])$/;"	f	line:302	signature:(FileHandles & handles,int question_amount,Question questions[])
+write_into_file	/tmp/nvimkIDIL2/3.cpp	/^void write_into_file(ofstream &write_handle, int questions_size,$/;"	f	line:315	signature:(ofstream & write_handle,int questions_size,Question questions[])
+display_loop	/tmp/nvimkIDIL2/3.cpp	/^void display_loop(char display_type, char subject[], int question_amount,$/;"	f	line:328	signature:(char display_type,char subject[],int question_amount,Question questions[])
+display_menu	/tmp/nvimkIDIL2/3.cpp	/^char display_menu()$/;"	f	line:355	signature:()
+subject_menu	/tmp/nvimkIDIL2/3.cpp	/^void subject_menu(int size, char subject[])$/;"	f	line:381	signature:(int size,char subject[])

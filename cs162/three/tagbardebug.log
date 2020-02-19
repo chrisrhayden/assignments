@@ -1,0 +1,129 @@
+
+
+NVIM v0.4.3
+Build type: Release
+LuaJIT 2.0.5
+Compilation: /usr/bin/cc -march=x86-64 -mtune=generic -O2 -pipe -fno-plt -O2 -DNDEBUG -DMIN_LOG_LEVEL=3 -Wall -Wextra -pedantic -Wno-unused-parameter -Wstrict-prototypes -std=gnu99 -Wshadow -Wconversion -Wmissing-prototypes -Wimplicit-fallthrough -Wvla -fstack-protector-strong -fdiagnostics-color=always -DINCLUDE_GENERATED_DECLARATIONS -D_GNU_SOURCE -DNVIM_MSGPACK_HAS_FLOAT32 -DNVIM_UNIBI_HAS_VAR_FROM -I/build/neovim/src/build/config -I/build/neovim/src/neovim-0.4.3/src -I/usr/include -I/build/neovim/src/build/src/nvim/auto -I/build/neovim/src/build/include
+Compiled by builduser
+
+Features: +acl +iconv +tui
+See ":help feature-compile"
+
+   system vimrc file: "$VIM/sysinit.vim"
+  fall-back for $VIM: "/usr/share/nvim"
+
+Run :checkhealth for more info1969-12-31 22:02:29.750408: ToggleWindow called
+1969-12-31 22:02:29.750720: OpenWindow called with flags: ''
+1969-12-31 22:02:29.751040: Checking for Exuberant Ctags
+1969-12-31 22:02:29.751494: EscapeCtagsCmd called
+1969-12-31 22:02:29.751658: ctags_bin: ctags
+1969-12-31 22:02:29.751778: ctags_args (is a string): --version
+1969-12-31 22:02:29.754740: Escaped ctags command: 'ctags' --version
+1969-12-31 22:02:29.754914: Executing ctags command: 'ctags' --version
+1969-12-31 22:02:29.764734: Executing command: "'/bin/zsh' '-c' ''ctags' --version'"
+1969-12-31 22:02:29.764905: Exit code: 0
+1969-12-31 22:02:29.773313: Command output:
+Universal Ctags 0.0.0(3fdf28bc), Copyright (C) 2015 Universal Ctags Team
+Universal Ctags is derived from Exuberant Ctags.
+Exuberant Ctags 5.8, Copyright (C) 1996-2009 Darren Hiebert
+  Compiled: May 22 2019, 21:51:22
+  URL: https://ctags.io/
+  Optional compiled features: +wildcards, +regex, +iconv, +option-directory, +xpath, +json, +interactive, +sandbox, +yaml, +packcc
+
+1969-12-31 22:02:29.773411: Exit code: 0
+1969-12-31 22:02:29.773511: Checking Exuberant Ctags version
+1969-12-31 22:02:29.773588: Found Universal Ctags, assuming compatibility
+1969-12-31 22:02:29.773692: Initializing types
+1969-12-31 22:02:29.773759: Getting filetypes supported by Exuberant Ctags
+1969-12-31 22:02:29.773831: EscapeCtagsCmd called
+1969-12-31 22:02:29.773896: ctags_bin: ctags
+1969-12-31 22:02:29.773959: ctags_args (is a string): --list-languages
+1969-12-31 22:02:29.774111: Escaped ctags command: 'ctags' --list-languages
+1969-12-31 22:02:29.774196: Executing ctags command: 'ctags' --list-languages
+1969-12-31 22:02:29.783348: Executing command: "'/bin/zsh' '-c' ''ctags' --list-languages'"
+1969-12-31 22:02:29.783463: Exit code: 0
+1969-12-31 22:02:29.799437: Creating autocommands
+1969-12-31 22:02:29.799780: AutoUpdate called [/home/chris/proj/assignments/three/src/main.cpp]
+1969-12-31 22:02:29.799872: Vim filetype: 'cpp', sanitized filetype: 'cpp'
+1969-12-31 22:02:29.799932: Checking if file is valid [/home/chris/proj/assignments/three/src/main.cpp]
+1969-12-31 22:02:29.800067: New file, processing [/home/chris/proj/assignments/three/src/main.cpp]
+1969-12-31 22:02:29.800121: ProcessFile called [/home/chris/proj/assignments/three/src/main.cpp]
+1969-12-31 22:02:29.800171: Checking if file is valid [/home/chris/proj/assignments/three/src/main.cpp]
+1969-12-31 22:02:29.800837: typeinfo for file to process: {'ctagstype': 'c++', 'ftype': 'cuda', 'kinddict': {'p': 2, 's': 8, 'v': 12, 'c': 7, 'd': 1, 'e': 4, 'f': 10, 'g': 3, 'h': 0, 't': 5, '?': 13, 'm': 11, 'n': 6, 'u': 9}, 'sro': '::', 'createKinddict': function('<SNR>81_createKinddict'), 'getKind': function('<SNR>81_getKind'), 'kind2scope': {'s': 'struct', 'c': 'class', 'u': 'union', 'g': 'enum', 'n': 'namespace', '?': 'unknown'}, 'scope2kind': {'enum': 'g', 'namespace': 'n', 'class': 'c', 'struct': 's', 'union': 'u'}, 'kinds': [{'short': 'h', 'long': 'header files', 'fold': 1, 'stl': 0}, {'short': 'd', 'long': 'macros', 'fold': 1, 'stl': 0}, {'short': 'p', 'long': 'prototypes', 'fold': 1, 'stl': 0}, {'short': 'g', 'long': 'enums', 'fold': 0, 'stl': 1}, {'short': 'e', 'long': 'enumerators', 'fold': 0, 'stl': 0}, {'short': 't', 'long': 'typedefs', 'fold': 0, 'stl': 0}, {'short': 'n', 'long': 'namespaces', 'fold': 0, 'stl': 1}, {'short': 'c', 'long': 'classes', 'fold': 0, 'stl': 1}, {'short': 's', 'long': 'structs', 'fold': 0, 'stl': 1}, {'short': 'u', 'long': 'unions', 'fold': 0, 'stl': 1}, {'short': 'f', 'long': 'functions', 'fold': 0, 'stl': 1}, {'short': 'm', 'long': 'members', 'fold': 0, 'stl': 0}, {'short': 'v', 'long': 'variables', 'fold': 0, 'stl': 0}, {'short': '?', 'long': 'unknown', 'fold': 0, 'stl': 1}]}
+1969-12-31 22:02:29.800946: Caching file into: /tmp/nvimkIDIL2/3.cpp
+1969-12-31 22:02:29.801119: ExecuteCtagsOnFile called [/tmp/nvimkIDIL2/3.cpp]
+1969-12-31 22:02:29.801277: EscapeCtagsCmd called
+1969-12-31 22:02:29.801321: ctags_bin: ctags
+1969-12-31 22:02:29.801373: ctags_args (is a list): ['--extras=', '-f', '-', '--format=2', '--excmd=pattern', '--fields=nksSaf', '--file-scope=yes', '--sort=no', '--append=no', '-V', '--language-force=c++', '--c++-kinds=hdpgetncsufmv']
+1969-12-31 22:02:29.801520: Escaped ctags command: 'ctags' '--extras=' '-f' '-' '--format=2' '--excmd=pattern' '--fields=nksSaf' '--file-scope=yes' '--sort=no' '--append=no' '-V' '--language-force=c++' '--c++-kinds=hdpgetncsufmv' '/tmp/nvimkIDIL2/3.cpp'
+1969-12-31 22:02:29.801623: Executing ctags command: 'ctags' '--extras=' '-f' '-' '--format=2' '--excmd=pattern' '--fields=nksSaf' '--file-scope=yes' '--sort=no' '--append=no' '-V' '--language-force=c++' '--c++-kinds=hdpgetncsufmv' '/tmp/nvimkIDIL2/3.cpp'
+1969-12-31 22:02:29.810593: Executing command: "'/bin/zsh' '-c' ''ctags' '--extras=' '-f' '-' '--format=2' '--excmd=pattern' '--fields=nksSaf' '--file-scope=yes' '--sort=no' '--append=no' '-V' '--language-force=c++' '--c++-kinds=hdpgetncsufmv' '/tmp/nvimkIDIL2/3.cpp''"
+1969-12-31 22:02:29.810692: Exit code: 0
+1969-12-31 22:02:29.815918: Ctags executed successfully
+1969-12-31 22:02:29.816281: Filetype tag kinds: ['p', 's', 'v', 'c', 'd', 'e', 'f', 'g', 'h', 't', '?', 'm', 'n', 'u']
+1969-12-31 22:02:29.816340: Parsing ctags output
+1969-12-31 22:02:29.835367: Processing kind: h, number of tags: 0
+1969-12-31 22:02:29.835483: Processing kind: d, number of tags: 0
+1969-12-31 22:02:29.835587: Processing kind: p, number of tags: 14
+1969-12-31 22:02:29.836236: Processing kind: e, number of tags: 0
+1969-12-31 22:02:29.836336: Processing kind: t, number of tags: 0
+1969-12-31 22:02:29.836446: Processing kind: f, number of tags: 16
+1969-12-31 22:02:29.836832: Processing kind: m, number of tags: 0
+1969-12-31 22:02:29.836927: Processing kind: v, number of tags: 0
+1969-12-31 22:02:29.839182: Setting current file [/home/chris/proj/assignments/three/src/main.cpp]
+1969-12-31 22:02:29.839550: AutoUpdate finished successfully
+1969-12-31 22:02:29.844714: AutoUpdate called [/home/chris/proj/assignments/three/__Tagbar__.1]
+1969-12-31 22:02:29.844791: Still opening window, stopping processing
+1969-12-31 22:02:29.844977: InitWindow called with autoclose: 0
+1969-12-31 22:02:29.846775: AutoUpdate called [/home/chris/proj/assignments/three/__Tagbar__.1]
+1969-12-31 22:02:29.846889: In Tagbar window, stopping processing
+1969-12-31 22:02:29.847229: Mapping keys
+1969-12-31 22:02:29.848080: InitWindow finished
+1969-12-31 22:02:29.848148: AutoUpdate called [/home/chris/proj/assignments/three/src/main.cpp]
+1969-12-31 22:02:29.848238: Vim filetype: 'cpp', sanitized filetype: 'cpp'
+1969-12-31 22:02:29.848306: Checking if file is valid [/home/chris/proj/assignments/three/src/main.cpp]
+1969-12-31 22:02:29.848459: File data seems up to date [/home/chris/proj/assignments/three/src/main.cpp]
+1969-12-31 22:02:29.848553: RenderContent called
+1969-12-31 22:02:29.848672: Redisplaying file [/home/chris/proj/assignments/three/src/main.cpp]
+1969-12-31 22:02:29.848836: PrintKinds called
+1969-12-31 22:02:29.848937: Printing kind: h, number of (top-level) tags: 0
+1969-12-31 22:02:29.849018: Printing kind: d, number of (top-level) tags: 0
+1969-12-31 22:02:29.849096: Printing kind: p, number of (top-level) tags: 14
+1969-12-31 22:02:29.849232: Printing kind: g, number of (top-level) tags: 0
+1969-12-31 22:02:29.849313: Printing kind: e, number of (top-level) tags: 0
+1969-12-31 22:02:29.849391: Printing kind: t, number of (top-level) tags: 0
+1969-12-31 22:02:29.849479: Printing kind: n, number of (top-level) tags: 0
+1969-12-31 22:02:29.849555: Printing kind: c, number of (top-level) tags: 0
+1969-12-31 22:02:29.849632: Printing kind: s, number of (top-level) tags: 0
+1969-12-31 22:02:29.849709: Printing kind: u, number of (top-level) tags: 0
+1969-12-31 22:02:29.849784: Printing kind: f, number of (top-level) tags: 16
+1969-12-31 22:02:29.850616: Printing kind: m, number of (top-level) tags: 0
+1969-12-31 22:02:29.850697: Printing kind: v, number of (top-level) tags: 0
+1969-12-31 22:02:29.850777: Printing kind: ?, number of (top-level) tags: 0
+1969-12-31 22:02:29.851027: Setting current file [/home/chris/proj/assignments/three/src/main.cpp]
+1969-12-31 22:02:29.851277: AutoUpdate finished successfully
+1969-12-31 22:02:29.863455: AutoUpdate called [/home/chris/proj/assignments/three/src/main.cpp]
+1969-12-31 22:02:29.863576: Vim filetype: 'cpp', sanitized filetype: 'cpp'
+1969-12-31 22:02:29.863627: Checking if file is valid [/home/chris/proj/assignments/three/src/main.cpp]
+1969-12-31 22:02:29.863792: File data seems up to date [/home/chris/proj/assignments/three/src/main.cpp]
+1969-12-31 22:02:29.863924: Setting current file [/home/chris/proj/assignments/three/src/main.cpp]
+1969-12-31 22:02:29.864108: goto_win(): wincmd p, 1
+1969-12-31 22:02:29.864202: goto_win(): 2wincmd w, 1
+1969-12-31 22:02:29.864365: goto_win(): 2wincmd w, 1
+1969-12-31 22:02:29.864430: goto_win(): 1wincmd w, 1
+1969-12-31 22:02:29.864489: AutoUpdate finished successfully
+1969-12-31 22:02:29.864745: OpenWindow finished
+1969-12-31 22:02:29.864801: ToggleWindow finished
+1969-12-31 22:02:31.159258: ToggleWindow called
+1969-12-31 22:02:31.159370: CloseWindow called
+1969-12-31 22:02:31.159563: goto_win(): 2wincmd w, 0
+1969-12-31 22:02:31.160117: AutoUpdate called [/home/chris/proj/assignments/three/__Tagbar__.1]
+1969-12-31 22:02:31.160223: In Tagbar window, stopping processing
+1969-12-31 22:02:31.161244: AutoUpdate called [/home/chris/proj/assignments/three/src/main.cpp]
+1969-12-31 22:02:31.161350: Vim filetype: 'cpp', sanitized filetype: 'cpp'
+1969-12-31 22:02:31.161402: Checking if file is valid [/home/chris/proj/assignments/three/src/main.cpp]
+1969-12-31 22:02:31.161545: File data seems up to date [/home/chris/proj/assignments/three/src/main.cpp]
+1969-12-31 22:02:31.161680: Setting current file [/home/chris/proj/assignments/three/src/main.cpp]
+1969-12-31 22:02:31.161886: AutoUpdate finished successfully
+1969-12-31 22:02:31.161961: goto_win(): 1wincmd w, 0
+1969-12-31 22:02:31.162737: CloseWindow finished
