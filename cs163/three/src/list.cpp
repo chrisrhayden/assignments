@@ -52,8 +52,6 @@ bool List::add(long int hash, HouseData *to_add) {
 
     Node *new_node = new Node(hash, to_add);
 
-    new_node->display();
-
     if (!head) {
         head = new_node;
     } else {
