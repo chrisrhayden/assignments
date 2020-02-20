@@ -24,8 +24,11 @@ HouseData::~HouseData() {
 }
 
 bool HouseData::is_empty() {
-    if (location[0] == '\0' && size[0] == '\0' && bedrooms[0] == '\0' &&
-        distance_to_psu[0] == '\0' && notes[0] == '\0') {
+    if (!location || !size || !bedrooms || !distance_to_psu || !notes) {
+        return true;
+
+    } else if (location[0] == '\0' && size[0] == '\0' && bedrooms[0] == '\0' &&
+               distance_to_psu[0] == '\0' && notes[0] == '\0') {
         return true;
     } else {
         return false;
@@ -38,7 +41,7 @@ bool HouseData::display() {
     }
 
     std::cout << "Location: " << location << "\nSize: " << size
-              << "\nBedrooms:" << bedrooms
+              << "\nBedrooms: " << bedrooms
               << "\nDistance to PSU: " << distance_to_psu
               << "\nNotes: " << notes << std::endl;
 
