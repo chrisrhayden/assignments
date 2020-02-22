@@ -1,4 +1,7 @@
 // #include "house_data.h"
+
+bool fill_data_from_file(char *path);
+
 struct ToParse;
 
 class HouseData;
@@ -12,13 +15,11 @@ class Table {
 
     bool add(char *key, HouseData *to_add);
     bool get(char *key, HouseData &to_fill);
+    bool remove(char *key, HouseData &to_fill);
     bool display(char *key);
     bool display_all();
-    bool remove(char *key, HouseData &to_fill);
-    bool fill_data_from_file(char *path);
 
   private:
-    bool parse_line_and_add_to_data(ToParse *to_parse);
     int table_size;
     List **table;
 };

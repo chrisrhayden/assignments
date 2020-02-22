@@ -91,70 +91,6 @@ bool Table::display_all() {
     return success;
 }
 
-// fill the table from a file
-bool Table::fill_data_from_file(char *path) {
-    int max_size = 1000;
-    // get a handle on the input file
-    std::ifstream input_file;
-
-    // open the file
-    input_file.open(path);
-
-    // check if there is data and we really do have a handle on the file
-    if (!input_file.peek()) {
-        // close to be sure
-        input_file.close();
-        return false;
-    }
-
-    ToParse *to_parse = new ToParse(max_size);
-
-    bool success = true;
-
-    // while its not the end of the file, we can still get data and the
-    // parsing worked last time
-    while (input_file.peek() && !input_file.eof() && success) {
-        input_file.getline(to_parse->source, to_parse->max_size);
-
-        success = parse_line_and_add_to_data(to_parse);
-        to_parse->source[0] = '\0';
-    }
-
-    // close as were done
-    input_file.close();
-
-    // delete the temporary array
-    delete to_parse;
-    return success;
-}
-
-bool Table::parse_line_and_add_to_data(ToParse *to_parse) {
-    // ignore any line starting with a #
-    if (to_parse->source[0] == '#') {
-        return true;
-    }
-
-    // parse_line will allocate all the needed memory
-    char *new_key = 0;
-    HouseData *new_house = new HouseData();
-
-    // parse the data and add to the queue
-    if (!parse_line(to_parse, new_key, new_house)) {
-        delete[] new_key;
-        delete new_house;
-
-        return false;
-    }
-
-    // add the new key to the table
-    bool success = add(new_key, new_house);
-
-    delete[] new_key;
-    delete new_house;
-
-    return success;
-}
-
 long int hash_function(int table_size, char *key) {
     // lol, just for now
     return key[0] % table_size;
@@ -227,4 +163,69 @@ bool parse_line(ToParse *to_parse, char *&new_key, HouseData *to_fill) {
     // TODO: maybe do a few checks if the data is correct
     // explicitly check for false to be clear
     return to_fill->is_empty() == false;
+}
+
+bool parse_line_and_add_to_table(Table *to_fill, ToParse *to_parse) {
+    // ignore any line starting with a #
+    if (to_parse->source[0] == '#') {
+        return true;
+    }
+
+    // parse_line will allocate all the needed memory
+    char *new_key = 0;
+    HouseData *new_house = new HouseData();
+
+    // parse the data and add to the queue
+    if (!parse_line(to_parse, new_key, new_house)) {
+        delete[] new_key;
+        delete new_house;
+
+        return false;
+    }
+
+    // add the new key to the table
+    bool success = to_fill->add(new_key, new_house);
+
+    delete[] new_key;
+    delete new_house;
+
+    return success;
+}
+
+// fill the table from a file
+bool fill_data_from_file(Table *to_fill, char *path) {
+    int max_size = 1000;
+    // get a handle on the input file
+    std::ifstream input_file;
+
+    // open the file
+    input_file.open(path);
+
+    // check if there is data and we really do have a handle on the file
+    if (!input_file.peek()) {
+        // close to be sure
+        input_file.close();
+        return false;
+    }
+
+    ToParse *to_parse = new ToParse(max_size);
+
+    bool success = true;
+
+    // while its not the end of the file, we can still get data and the
+    // parsing worked last time
+    while (input_file.peek() && !input_file.eof() && success) {
+        input_file.getline(to_parse->source, to_parse->max_size);
+
+        success = parse_line_and_add_to_table(to_fill, to_parse);
+
+        to_parse->source[0] = '\0';
+    }
+
+    // close as were done
+    input_file.close();
+
+    // delete the temporary array
+    delete to_parse;
+    return success;
 }
