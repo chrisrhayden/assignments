@@ -1,5 +1,6 @@
 #include <cstring>
 #include <fstream>
+#include <stdio.h>
 
 #include "list.h"
 #include "table.h"
@@ -101,7 +102,7 @@ bool Table::remove(char *key) {
     return _remove(key, 0);
 }
 
-int Table::retrieve(DataKey data_key, char *sub_str, MealData **meal_array) {
+int Table::retrieve(DataKey data_key, char *sub_str, MealData *meal_array) {
     if (!table) {
         return false;
     }
@@ -123,11 +124,12 @@ int Table::retrieve(DataKey data_key, char *sub_str, MealData **meal_array) {
 
     cout << success << ' ' << temp->length << endl;
 
-    meal_array = new MealData *[temp_length];
+    meal_array = new MealData[temp_length];
 
     for (int i = 0; i < temp_length && success; ++i) {
         meal_array[i] = new MealData();
-        success = meal_array[i]->copy_from_meal_data(temp->meal_array[i]);
+        success = meal_array[i].copy_from_meal_data(temp->meal_array[i]);
+        meal_array[i]->display();
     }
 
     delete temp;

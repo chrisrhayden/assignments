@@ -78,9 +78,7 @@ bool MealData::match_data_key(DataKey data_key, char *sub_str) {
         case Review: {
             return strstr(review, sub_str) == 0;
         }
-        default: {
-            return false;
-        }
+        default: { return false; }
     }
 }
 

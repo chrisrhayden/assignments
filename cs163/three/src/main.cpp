@@ -51,7 +51,7 @@ bool test_data(Table *to_test) {
     // to_display->display();
     // delete to_display;
 
-    MealData **meals = NULL;
+    MealData *meals = new MealData[1024 * 8];
 
     char bowl[] = "the bowl";
 
@@ -66,7 +66,7 @@ bool test_data(Table *to_test) {
     }
 
     for (int i = 0; i < len; ++i) {
-        meals[i]->display();
+        meals[i].display();
     }
 
     delete[] meals;
@@ -78,7 +78,7 @@ int main() {
     bool success = true;
     const int table_size = 11;
 
-    char path[] = "/home/chris/proj/assignments/cs163/three/data.txt";
+    char path[] = "./data.txt";
 
     Table *table = new Table(table_size);
 
