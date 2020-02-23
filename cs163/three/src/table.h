@@ -11,7 +11,7 @@ class Table {
     bool get(char *key, MealData *to_fill);
     bool remove(char *key);
     bool remove(char *key, MealData *to_fill);
-    int retrieve(DataKey data_key, char *substr, MealData ***meal_arry_to_fill);
+    bool retrieve(DataKey data_key, char *substr, List *meal_list);
     bool display_all();
 
   private:

@@ -118,8 +118,7 @@ bool List::remove(char *key, MealData *to_fill) {
     return success;
 }
 
-bool List::retrieve(DataKey data_key, char *sub_str,
-                    MealCollect *meal_collect) {
+bool List::retrieve(DataKey data_key, char *sub_str, List *meal_collect) {
     bool success = true;
 
     Node *current = head;

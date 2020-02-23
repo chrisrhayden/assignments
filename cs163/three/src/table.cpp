@@ -101,7 +101,7 @@ bool Table::remove(char *key) {
     return _remove(key, 0);
 }
 
-int Table::retrieve(DataKey data_key, char *sub_str, MealData ***meal_array) {
+bool Table::retrieve(DataKey data_key, char *sub_str, List *meal_list) {
     if (!table) {
         return false;
     }
@@ -109,35 +109,18 @@ int Table::retrieve(DataKey data_key, char *sub_str, MealData ***meal_array) {
     bool success = true;
     List **current = table;
 
-    MealCollect *temp = new MealCollect(table_size);
-
-    // while (*current && success) {
     for (int i = 0; i < table_size; ++i) {
         if (*current && !(*current)->is_empty()) {
-            success = (*current)->retrieve(data_key, sub_str, temp);
+            success = (*current)->retrieve(data_key, sub_str, meal_list);
         }
 
-        current = current + 1;
+        ++current;
     }
 
-    int temp_length = temp->length;
-
-    cout << success << ' ' << temp->length << endl;
-
-    *meal_array = new MealData *[temp_length];
-
-    for (int i = 0; i < temp_length && success; ++i) {
-        (*meal_array)[i] = new MealData();
-        success = (*meal_array)[i]->copy_from_meal_data(temp->meal_array[i]);
-        // meal_array[i]->display();
-    }
-
-    delete temp;
-
-    if (!success || temp_length == 0) {
+    if (!success) {
         return -1;
     } else {
-        return temp_length;
+        return meal_list->is_empty() == false;
     }
 }
 

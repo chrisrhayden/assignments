@@ -17,7 +17,7 @@ enum DataKey {
 struct MealData {
     MealData();
     ~MealData();
-    bool copy_from_meal_data(const MealData *to_add);
+    bool copy_from_meal_data(MealData *to_add);
     bool display();
     bool is_empty();
     bool is_restaurant();

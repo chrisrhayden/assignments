@@ -1,6 +1,7 @@
 #include <cstring>
 #include <iostream>
 
+#include "list.h"
 #include "meal_data.h"
 #include "table.h"
 
@@ -50,8 +51,9 @@ bool test_data(Table *to_test) {
     // cout << "removed from table: \n";
     // to_display->display();
     // delete to_display;
+    // MealData *meals = new MealData[100];
 
-    MealData ***meals;
+    List *meals = new List();
 
     char bowl[] = "the bowl";
 
@@ -61,16 +63,14 @@ bool test_data(Table *to_test) {
 
     if (!meals || len == -1) {
         cout << "bad retrieve" << endl;
-        // delete[] meals;
         return false;
     }
 
     for (int i = 0; i < len; ++i) {
-        (*meals)[i]->display();
+        meals->display();
     }
 
-    delete[] * meals;
-    //  delete meals;
+    delete meals;
 
     return true;
 }

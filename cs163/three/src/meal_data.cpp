@@ -36,7 +36,7 @@ MealData::~MealData() {
     }
 }
 
-bool MealData::copy_from_meal_data(const MealData *to_add) {
+bool MealData::copy_from_meal_data(MealData *to_add) {
     name_of_meal = new char[strlen(to_add->name_of_meal)];
     strcpy(name_of_meal, to_add->name_of_meal);
 
@@ -124,47 +124,6 @@ bool MealData::display() {
               << "\naprx price: " << approximate_price
               << " \nrating: " << rating << "\nreview: " << review
               << "\nit is a: " << v_type << std::endl;
-
-    return true;
-}
-
-MealCollect::MealCollect(int size) {
-    meal_array = new MealData *[size];
-
-    length = 0;
-    max_len = size;
-}
-
-MealCollect::~MealCollect() {
-    delete[] meal_array;
-}
-
-bool MealCollect::add(MealData *to_add) {
-    if (length + 1 <= max_len) {
-        meal_array[length] = new MealData();
-        meal_array[length]->copy_from_meal_data(to_add);
-
-        ++length;
-
-    } else {
-        MealData **temp = new MealData *[max_len];
-
-        for (int i = 0; i < max_len; ++i) {
-            temp[i]->copy_from_meal_data(meal_array[i]);
-        }
-
-        delete[] meal_array;
-
-        meal_array = new MealData *[max_len * 2];
-
-        for (int i = 0; i < max_len; ++i) {
-            meal_array[i]->copy_from_meal_data(temp[i]);
-        }
-
-        max_len = max_len * 2;
-
-        return add(to_add);
-    }
 
     return true;
 }
