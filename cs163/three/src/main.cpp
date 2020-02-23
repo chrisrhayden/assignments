@@ -41,38 +41,28 @@ void print_help() {
          << endl;
 }
 
-bool test_data(Table *to_test) {
-    // MealData *to_display = new MealData();
-
-    // char bowl[] = "the bowl";
-
-    // to_test->get(bowl, to_display);
-
-    // cout << "removed from table: \n";
-    // to_display->display();
-    // delete to_display;
-    // MealData *meals = new MealData[100];
-
+void test_data(Table *to_test) {
     List *meals = new List();
 
-    char bowl[] = "the bowl";
+    char bowl[] = "fuck";
 
     DataKey key = NameOfMeal;
 
     int len = to_test->retrieve(key, bowl, meals);
 
-    if (!meals || len == -1) {
+    if (len == -1) {
         cout << "bad retrieve" << endl;
-        return false;
-    }
-
-    for (int i = 0; i < len; ++i) {
-        meals->display();
+    } else if (meals->is_empty()) {
+        cout << "nothing matches" << endl;
+    } else {
+        for (int i = 0; i < len; ++i) {
+            meals->display();
+        }
     }
 
     delete meals;
 
-    return true;
+    return;
 }
 
 int main() {
