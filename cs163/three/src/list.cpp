@@ -49,11 +49,6 @@ bool List::is_empty() {
 }
 
 bool List::add(MealData *to_add) {
-    // to add should probably be validated else where
-    // if (to_add->is_empty()) {
-    //     return false;
-    // }
-
     Node *new_node = new Node(to_add);
 
     if (!head) {

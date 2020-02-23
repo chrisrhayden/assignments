@@ -62,28 +62,21 @@ bool MealData::match_data_key(DataKey data_key, char *sub_str) {
         return false;
     }
 
-    // TODO: make all the same as name_of_meal
     switch (data_key) {
         case NameOfMeal: {
-            char *found = strstr(name_of_meal, sub_str);
-
-            if (!found) {
-                return false;
-            } else {
-                return true;
-            }
+            return strstr(name_of_meal, sub_str) != 0;
         }
         case NameOfVenue: {
-            return strstr(name_of_venue, sub_str) == 0;
+            return strstr(name_of_venue, sub_str) != 0;
         }
         case ApproximatePrice: {
-            return strstr(approximate_price, sub_str) == 0;
+            return strstr(approximate_price, sub_str) != 0;
         }
         case Rating: {
-            return strstr(rating, sub_str) == 0;
+            return strstr(rating, sub_str) != 0;
         }
         case Review: {
-            return strstr(review, sub_str) == 0;
+            return strstr(review, sub_str) != 0;
         }
         default: {
             return false;
