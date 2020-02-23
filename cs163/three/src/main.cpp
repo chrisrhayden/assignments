@@ -51,7 +51,7 @@ bool test_data(Table *to_test) {
     // to_display->display();
     // delete to_display;
 
-    MealData **meals = NULL;
+    MealData **meals;
 
     char bowl[] = "the bowl";
 
@@ -61,7 +61,7 @@ bool test_data(Table *to_test) {
 
     if (!meals || len == -1) {
         cout << "bad retrieve" << endl;
-        delete[] meals;
+        // delete[] meals;
         return false;
     }
 

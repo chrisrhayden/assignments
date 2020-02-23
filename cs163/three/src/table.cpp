@@ -111,7 +111,8 @@ int Table::retrieve(DataKey data_key, char *sub_str, MealData **meal_array) {
 
     MealCollect *temp = new MealCollect(table_size);
 
-    while (*current && success) {
+    // while (*current && success) {
+    for (int i = 0; i < table_size; ++i) {
         if (*current && !(*current)->is_empty()) {
             success = (*current)->retrieve(data_key, sub_str, temp);
         }
@@ -128,6 +129,7 @@ int Table::retrieve(DataKey data_key, char *sub_str, MealData **meal_array) {
     for (int i = 0; i < temp_length && success; ++i) {
         meal_array[i] = new MealData();
         success = meal_array[i]->copy_from_meal_data(temp->meal_array[i]);
+        // meal_array[i]->display();
     }
 
     delete temp;
