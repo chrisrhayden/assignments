@@ -119,17 +119,23 @@ int Table::retrieve(DataKey data_key, char *sub_str, MealData **meal_array) {
         current = current + 1;
     }
 
-    meal_array = new MealData *[temp->length];
-    for (int i = 0; i < temp->length && success; ++i) {
+    int temp_length = temp->length;
+
+    cout << success << ' ' << temp->length << endl;
+
+    meal_array = new MealData *[temp_length];
+
+    for (int i = 0; i < temp_length && success; ++i) {
+        meal_array[i] = new MealData();
         success = meal_array[i]->copy_from_meal_data(temp->meal_array[i]);
     }
 
     delete temp;
 
-    if (!success) {
-        return 0;
+    if (!success || temp_length == 0) {
+        return -1;
     } else {
-        return temp->length;
+        return temp_length;
     }
 }
 

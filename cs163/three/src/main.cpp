@@ -51,14 +51,19 @@ bool test_data(Table *to_test) {
     // to_display->display();
     // delete to_display;
 
-    MealData **meals = 0;
+    MealData **meals = NULL;
 
-    char burger[] = "burger";
+    char bowl[] = "the bowl";
 
     DataKey key = NameOfMeal;
 
-    int len = to_test->retrieve(key, burger, meals);
-    cout << "<><><><><><><><><><><><><><><><><><><><>" << endl;
+    int len = to_test->retrieve(key, bowl, meals);
+
+    if (!meals || len == -1) {
+        cout << "bad retrieve" << endl;
+        delete[] meals;
+        return false;
+    }
 
     for (int i = 0; i < len; ++i) {
         meals[i]->display();

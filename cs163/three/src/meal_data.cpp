@@ -64,19 +64,19 @@ bool MealData::match_data_key(DataKey data_key, char *sub_str) {
 
     switch (data_key) {
         case NameOfMeal: {
-            return strcmp(name_of_meal, sub_str) == 0;
+            return strstr(name_of_meal, sub_str) == 0;
         }
         case NameOfVenue: {
-            return strcmp(name_of_venue, sub_str) == 0;
+            return strstr(name_of_venue, sub_str) == 0;
         }
         case ApproximatePrice: {
-            return strcmp(approximate_price, sub_str) == 0;
+            return strstr(approximate_price, sub_str) == 0;
         }
         case Rating: {
-            return strcmp(rating, sub_str) == 0;
+            return strstr(rating, sub_str) == 0;
         }
         case Review: {
-            return strcmp(review, sub_str) == 0;
+            return strstr(review, sub_str) == 0;
         }
         default: {
             return false;
@@ -133,18 +133,17 @@ MealCollect::~MealCollect() {
 }
 
 bool MealCollect::add(MealData *to_add) {
-    bool success = true;
-    bool found = false;
+    if (length + 1 <= max_len) {
+        meal_array[length] = new MealData();
+        meal_array[length]->copy_from_meal_data(to_add);
 
-    if (length + 1 != max_len) {
-        meal_array[length + 1]->copy_from_meal_data(to_add);
         ++length;
 
     } else {
-        MealData **temp = new MealData *[max_len * 2];
+        MealData **temp = new MealData *[max_len];
 
         for (int i = 0; i < max_len; ++i) {
-            temp[i]->copy_from_meal_data(temp[i]);
+            temp[i]->copy_from_meal_data(meal_array[i]);
         }
 
         delete[] meal_array;
@@ -160,5 +159,5 @@ bool MealCollect::add(MealData *to_add) {
         return add(to_add);
     }
 
-    return success;
+    return true;
 }
