@@ -121,11 +121,11 @@ bool MealData::display() {
     return true;
 }
 
-MealCollect::MealCollect(int max_length) {
-    meal_array = new MealData *[max_length];
+MealCollect::MealCollect(int size) {
+    meal_array = new MealData *[size];
 
     length = 0;
-    max_len = max_length;
+    max_len = size;
 }
 
 MealCollect::~MealCollect() {
@@ -136,16 +136,11 @@ bool MealCollect::add(MealData *to_add) {
     bool success = true;
     bool found = false;
 
-    for (int i = 0; i < max_len && !found; ++i) {
-        if (meal_array[i]->is_empty()) {
-            found = true;
+    if (length + 1 != max_len) {
+        meal_array[length + 1]->copy_from_meal_data(to_add);
+        ++length;
 
-            success = meal_array[i]->copy_from_meal_data(to_add);
-            ++length;
-        }
-    }
-
-    if (!found) {
+    } else {
         MealData **temp = new MealData *[max_len * 2];
 
         for (int i = 0; i < max_len; ++i) {

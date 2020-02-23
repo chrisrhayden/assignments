@@ -58,6 +58,7 @@ bool test_data(Table *to_test) {
     DataKey key = NameOfMeal;
 
     int len = to_test->retrieve(key, burger, meals);
+    cout << "<><><><><><><><><><><><><><><><><><><><>" << endl;
 
     for (int i = 0; i < len; ++i) {
         meals[i]->display();
@@ -79,9 +80,9 @@ int main() {
     success = fill_data_from_file(table, path);
 
     if (success) {
-        table->display_all();
+        test_data(table);
     } else {
-        cout << "we got fucked" << endl;
+        cout << "bad data from file" << endl;
     }
 
     delete table;

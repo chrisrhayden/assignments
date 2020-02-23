@@ -107,15 +107,16 @@ int Table::retrieve(DataKey data_key, char *sub_str, MealData **meal_array) {
     }
 
     bool success = true;
-    List *current = *table;
+    List **current = table;
+
     MealCollect *temp = new MealCollect(table_size);
 
-    while (current && success) {
-        if (current && !current->is_empty()) {
-            success = current->retrieve(data_key, sub_str, temp);
+    while (*current && success) {
+        if (*current && !(*current)->is_empty()) {
+            success = (*current)->retrieve(data_key, sub_str, temp);
         }
 
-        ++current;
+        current = current + 1;
     }
 
     meal_array = new MealData *[temp->length];
@@ -258,9 +259,6 @@ bool parse_line_and_add_to_table(Table *to_fill, ToParse *to_parse) {
 
     // add the new key to the table
     bool success = to_fill->add(new_meal->name_of_meal, new_meal);
-
-    cout << "before display; " << success << endl;
-    to_fill->display_all();
 
     delete new_meal;
 
