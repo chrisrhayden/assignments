@@ -51,7 +51,7 @@ bool test_data(Table *to_test) {
     // to_display->display();
     // delete to_display;
 
-    MealData **meals;
+    MealData ***meals;
 
     char bowl[] = "the bowl";
 
@@ -66,10 +66,11 @@ bool test_data(Table *to_test) {
     }
 
     for (int i = 0; i < len; ++i) {
-        meals[i]->display();
+        (*meals)[i]->display();
     }
 
-    delete[] meals;
+    delete[] * meals;
+    //  delete meals;
 
     return true;
 }
