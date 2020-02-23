@@ -1,5 +1,6 @@
 out/
 valgrind-out.txt
+vgcore.*
 
 # Created by https://www.gitignore.io/api/git,vim,c++
 # Edit at https://www.gitignore.io/?templates=git,vim,c++
