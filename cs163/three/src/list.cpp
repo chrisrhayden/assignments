@@ -49,6 +49,22 @@ bool List::is_empty() {
 }
 
 bool List::add(MealData *to_add) {
+    bool found = false;
+    Node *current = head;
+    while (current && !found) {
+        if (current->data.match_data_key_full(NameOfMeal,
+                                              to_add->name_of_meal)) {
+            found = true;
+        }
+
+        current = current->next;
+    }
+
+    if (found) {
+        // idk i guess this could be false
+        return true;
+    }
+
     Node *new_node = new Node(to_add);
 
     if (!head) {
@@ -81,18 +97,16 @@ bool List::get(char *key, MealData *to_fill) {
     return success;
 }
 
-bool List::remove(char *key, MealData *to_fill) {
-    bool success = false;
+bool List::remove(DataKey data_key, char *key, MealData *to_fill) {
+    // will remove all by key
+    // not finding a match is still a success
+    bool success = true;
     Node *current = head;
     Node *prev = 0;
 
-    while (current && !success) {
-        if (strcmp(current->data.name_of_meal, key) == 0) {
-            success = true;
-
-            if (to_fill) {
-                to_fill->copy_from_meal_data(&current->data);
-            }
+    while (current && success) {
+        if (current->data.match_data_key_full(data_key, key)) {
+            success = to_fill->copy_from_meal_data(&current->data);
 
             if (prev) {
                 prev->next = current->next;

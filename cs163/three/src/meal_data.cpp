@@ -64,19 +64,46 @@ bool MealData::match_data_key(DataKey data_key, char *sub_str) {
 
     switch (data_key) {
         case NameOfMeal: {
-            return strstr(name_of_meal, sub_str) != 0;
+            return strstr(name_of_meal, sub_str) != NULL;
         }
         case NameOfVenue: {
-            return strstr(name_of_venue, sub_str) != 0;
+            return strstr(name_of_venue, sub_str) != NULL;
         }
         case ApproximatePrice: {
-            return strstr(approximate_price, sub_str) != 0;
+            return strstr(approximate_price, sub_str) != NULL;
         }
         case Rating: {
-            return strstr(rating, sub_str) != 0;
+            return strstr(rating, sub_str) != NULL;
         }
         case Review: {
-            return strstr(review, sub_str) != 0;
+            return strstr(review, sub_str) != NULL;
+        }
+        default: {
+            return false;
+        }
+    }
+}
+
+bool MealData::match_data_key_full(DataKey data_key, char *sub_str) {
+    if (is_empty()) {
+        return false;
+    }
+
+    switch (data_key) {
+        case NameOfMeal: {
+            return strcmp(name_of_meal, sub_str) == 0;
+        }
+        case NameOfVenue: {
+            return strcmp(name_of_venue, sub_str) == 0;
+        }
+        case ApproximatePrice: {
+            return strcmp(approximate_price, sub_str) == 0;
+        }
+        case Rating: {
+            return strcmp(rating, sub_str) == 0;
+        }
+        case Review: {
+            return strcmp(review, sub_str) == 0;
         }
         default: {
             return false;

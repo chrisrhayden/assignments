@@ -23,6 +23,7 @@ struct MealData {
     bool is_restaurant();
     bool match_data_key(DataKey data_key, char *sub_str);
     bool match_data_key(DataKey data_key, VenueType serching_venue);
+    bool match_data_key_full(DataKey data_key, char *key);
 
     char *name_of_meal;
     char *name_of_venue;

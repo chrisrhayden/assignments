@@ -81,7 +81,7 @@ bool Table::get(char *key, MealData *to_fill) {
     return maybe_list->get(key, to_fill);
 }
 
-bool Table::_remove(char *key, MealData *to_fill) {
+bool Table::_remove(DataKey data_key, char *key, MealData *to_fill) {
     long int hash = hash_function(table_size, key);
 
     List *maybe_list = table[hash];
@@ -90,19 +90,46 @@ bool Table::_remove(char *key, MealData *to_fill) {
         return false;
     }
 
-    return maybe_list->remove(key, to_fill);
+    return maybe_list->remove(data_key, key, to_fill);
 }
 
 bool Table::remove(char *key, MealData *to_fill) {
-    return _remove(key, to_fill);
+    if (!to_fill) {
+        return false;
+    }
+
+    return _remove(NameOfMeal, key, to_fill);
 }
 
-bool Table::remove(char *key) {
-    return _remove(key, 0);
+bool Table::remove_by(DataKey data_key, char *sub_str, List *meal_list) {
+    if (!table || !meal_list) {
+        return false;
+    }
+
+    bool success = true;
+    List **current = table;
+
+    for (int i = 0; i < table_size && success; ++i) {
+        if (*current && !(*current)->is_empty()) {
+            MealData *new_meal = new MealData();
+
+            success = (*current)->remove(data_key, sub_str, new_meal);
+
+            if (success && !new_meal->is_empty()) {
+                success = meal_list->add(new_meal);
+            }
+
+            delete new_meal;
+        }
+
+        ++current;
+    }
+
+    return success;
 }
 
 bool Table::retrieve(DataKey data_key, char *sub_str, List *meal_list) {
-    if (!table) {
+    if (!table || !meal_list) {
         return false;
     }
 
@@ -117,11 +144,7 @@ bool Table::retrieve(DataKey data_key, char *sub_str, List *meal_list) {
         ++current;
     }
 
-    if (!success) {
-        return -1;
-    } else {
-        return meal_list->is_empty() == false;
-    }
+    return success;
 }
 
 // display all items in the table from the beginning of the array to the end,
@@ -280,7 +303,6 @@ bool fill_data_from_file(Table *to_fill, char *path) {
     // parsing worked last time
     while (input_file.peek() && !input_file.eof() && success) {
         input_file.getline(to_parse->source, to_parse->max_size);
-        input_file.ignore(1000, '\n');
 
         success = parse_line_and_add_to_table(to_fill, to_parse);
 

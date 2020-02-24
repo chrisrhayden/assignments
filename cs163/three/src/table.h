@@ -9,13 +9,13 @@ class Table {
 
     bool add(char *key, MealData *to_add);
     bool get(char *key, MealData *to_fill);
-    bool remove(char *key);
     bool remove(char *key, MealData *to_fill);
-    bool retrieve(DataKey data_key, char *substr, List *meal_list);
+    bool remove_by(DataKey data_key, char *key, List *meal_list);
+    bool retrieve(DataKey data_key, char *sub_str, List *meal_list);
     bool display_all();
 
   private:
-    bool _remove(char *key, MealData *to_fill);
+    bool _remove(DataKey data_key, char *key, MealData *to_fill);
     int table_size;
     List **table;
 };

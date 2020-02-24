@@ -1,9 +1,9 @@
 # meal name, venue name, price, rating, review, if it is a restaurant
 krabby patty$amazing restaurant thing$cheap$4 stars$its very good$true
-the bowl$whole bowl$cheap$5 stars$its good$false
+a bowl$whole bowl$cheap$5 stars$its good$false
 cooked rat$a restaurant place$expensive as fuck$3 stars$its not bad$true
 fish and chips$terrible food cart 02$cheap$2 stars$its pretty bad dont go$false
-hash cakes$terrible food cart 01$cheap$2 stars$its pretty bad dont go$false
+hash cakes$not bad food cart 01$cheap$4 stars$its pretty bad dont go$false
 coffee$cafe cool place$6.0$4 stars$good coffee$true
 # trash burger 01$terrible food cart 03$6.0$2 stars$its pretty bad dont go$false
 # trash burger 02$terrible food cart 04$6.0$2 stars$its pretty bad dont go$false
