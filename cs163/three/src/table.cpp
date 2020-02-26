@@ -4,13 +4,6 @@
 #include "list.h"
 #include "table.h"
 
-// mostly for debugging
-#include <iostream>
-using namespace std;
-
-// prototype so we can define it below and use it in the  class's and not add
-// it to the table.h so it cant be imported by the outside
-
 // the basic hash function used by the table class
 long int hash_function(int table_size, char *key);
 
@@ -60,39 +53,49 @@ Table::~Table() {
 
 // add to the hash table
 bool Table::add(char *key, MealData *to_add) {
+    // get the hash
     long int hash = hash_function(table_size, key);
 
+    // make a new list in the hash index if it dose not exist
     if (!table[hash]) {
         table[hash] = new List();
     }
 
+    // ask the list to add the data
     return table[hash]->add(to_add);
 }
 
+// get data based on key
 bool Table::get(char *key, MealData *to_fill) {
     long int hash = hash_function(table_size, key);
 
     List *maybe_list = table[hash];
 
+    // if key dose not exists return false;
     if (!maybe_list && maybe_list->is_empty()) {
         return false;
     }
 
+    // return whether we get data from list
     return maybe_list->get(key, to_fill);
 }
 
+// remove from the table
 bool Table::_remove(DataKey data_key, char *key, MealData *to_fill) {
     long int hash = hash_function(table_size, key);
 
     List *maybe_list = table[hash];
 
+    // if table dose not have the key return false
     if (!maybe_list || maybe_list->is_empty()) {
         return false;
     }
 
+    // weather the list removed the data
     return maybe_list->remove(data_key, key, to_fill);
 }
 
+// call _remove with the right values
 bool Table::remove(char *key, MealData *to_fill) {
     if (!to_fill) {
         return false;
@@ -101,7 +104,9 @@ bool Table::remove(char *key, MealData *to_fill) {
     return _remove(NameOfMeal, key, to_fill);
 }
 
+// remove by the given FULL value and a key to match
 bool Table::remove_by(DataKey data_key, char *sub_str, List *meal_list) {
+    // if neath exist the return false
     if (!table || !meal_list) {
         return false;
     }
@@ -110,11 +115,14 @@ bool Table::remove_by(DataKey data_key, char *sub_str, List *meal_list) {
     List **current = table;
 
     for (int i = 0; i < table_size && success; ++i) {
+        // if data try and remove
         if (*current && !(*current)->is_empty()) {
             MealData *new_meal = new MealData();
 
+            // ask the list to remove if matches
             success = (*current)->remove(data_key, sub_str, new_meal);
 
+            // add to the returned list
             if (success && !new_meal->is_empty()) {
                 success = meal_list->add(new_meal);
             }
@@ -128,6 +136,7 @@ bool Table::remove_by(DataKey data_key, char *sub_str, List *meal_list) {
     return success;
 }
 
+// get data based on the data_key given
 bool Table::retrieve(DataKey data_key, char *sub_str, List *meal_list) {
     if (!table || !meal_list) {
         return false;
@@ -138,6 +147,7 @@ bool Table::retrieve(DataKey data_key, char *sub_str, List *meal_list) {
 
     for (int i = 0; i < table_size; ++i) {
         if (*current && !(*current)->is_empty()) {
+            // ask the list if it has nodes with a value match by sub_str
             success = (*current)->retrieve(data_key, sub_str, meal_list);
         }
 
@@ -179,12 +189,14 @@ struct ToParse {
     int max_size;
 };
 
+// ToParse constructor
 ToParse::ToParse(int size) {
     source = new char[size];
     source[0] = '\0';
     max_size = size;
 }
 
+// ToParse deconstructor
 ToParse::~ToParse() {
     max_size = 0;
     delete[] source;
@@ -203,6 +215,7 @@ bool strcpy_safe(char *source, char *&dest) {
     return dest[0] != '\0';
 }
 
+// parse the string given in to smaller string and make a new meal based on it
 bool parse_line(ToParse *to_parse, MealData *to_fill) {
     bool success = true;
 
@@ -217,6 +230,7 @@ bool parse_line(ToParse *to_parse, MealData *to_fill) {
 
     success = strcpy_safe(split, to_fill->name_of_meal);
 
+    // if success then keep going, else just stop an d return false
     if (success) {
         split = strtok(0, delimiter);
         success = strcpy_safe(split, to_fill->name_of_venue);
@@ -255,6 +269,7 @@ bool parse_line(ToParse *to_parse, MealData *to_fill) {
     return success && to_fill->is_empty() == false;
 }
 
+// call parse_line and add the meal to the given table
 bool parse_line_and_add_to_table(Table *to_fill, ToParse *to_parse) {
     // ignore any line starting with a #
     if (to_parse->source[0] == '#') {
