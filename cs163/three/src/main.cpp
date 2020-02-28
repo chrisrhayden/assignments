@@ -30,9 +30,7 @@ int get_user_input_yes_or_no() {
 // get a user input between an exclusive range
 int get_user_input_int(int start, int stop) {
     int user_input = 0;
-
     bool success = false;
-
     do {
         cout << " -> ";
         cin >> user_input;
