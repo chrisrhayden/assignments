@@ -1,10 +1,13 @@
 // agagagagagagagagahhagaashgasdjshghdagshdgasjkdgasjlkhdgsajkgdkjsa
-// this fucking trash, I just wan to use this in table.h and list.h wtf
+// this fucking trash, I just wan to use this in table.h and list.h wtf,
+// pleas tell me there is a better way or im just doing something wrong
 #ifndef MEAL_DATA_H
 #define MEAL_DATA_H
 
+// to tell if it is a restaurant
 enum VenueType { Cart, Restaurant };
 
+// the data key to match on for certain tasks like retrieve
 enum DataKey {
     NameOfMeal,
     NameOfVenue,
@@ -14,6 +17,7 @@ enum DataKey {
     VenueTypeKey
 };
 
+// the data we are working with, its a struct to easily work with the values
 struct MealData {
     MealData();
     ~MealData();
@@ -31,16 +35,6 @@ struct MealData {
     char *rating;
     char *review;
     VenueType venue_type;
-};
-
-struct MealCollect {
-    MealCollect(int max_length);
-    ~MealCollect();
-
-    MealData **meal_array;
-    bool add(MealData *to_add);
-    int length;
-    int max_len;
 };
 
 #endif

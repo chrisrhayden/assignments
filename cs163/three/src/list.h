@@ -1,5 +1,6 @@
 #include "meal_data.h"
 
+// the nodes to contain th e data and connect the list
 struct Node {
     Node(MealData *to_add);
     ~Node();
@@ -10,7 +11,9 @@ struct Node {
     Node *next;
 };
 
+// the class containing all the data nodes
 class List {
+    // public methods
   public:
     List();
     ~List();
@@ -21,7 +24,9 @@ class List {
     bool display();
     bool is_empty();
 
+    // private data and methods
   private:
-    bool match_data_key(DataKey data_key, char *sub_str);
+    // this is recursive so keep it private to not have the use see node
+    void display(Node *current);
     Node *head;
 };
