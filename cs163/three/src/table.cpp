@@ -175,9 +175,39 @@ bool Table::display_all() {
     return success;
 }
 
+// average the ascii values an add the table size to be over and mod the table
+// size to be under, lol
+long int hash_function_avg(int table_size, char *key) {
+    long int total = 0;
+
+    int i = 0;
+    for (; key[i] != '\0'; ++i) {
+        total += key[i];
+    }
+
+    total = total / i;
+
+    total += table_size;
+
+    return total % table_size;
+}
+
+// multiply the ascii values and mod by table value
+long int hash_function_multi(int table_size, char *key) {
+    long int total = 0;
+
+    int i = 0;
+    for (; key[i] != '\0'; ++i) {
+        total *= key[i];
+    }
+
+    total += table_size;
+
+    return total % table_size;
+}
+
 long int hash_function(int table_size, char *key) {
-    // lol, just for now
-    return key[0] % table_size;
+    return hash_function_avg(table_size, key);
 }
 
 // these functions kinda suck but oh well ---------->

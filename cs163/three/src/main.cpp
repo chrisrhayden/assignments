@@ -45,7 +45,8 @@ int get_user_input_int(int start, int stop) {
 
     do {
         // make the prompt show the range we need
-        cout <<  " (" << start + 1 << "|" << stop - 1 << ")"  << " -> ";
+        cout << " (" << start + 1 << "|" << stop - 1 << ")"
+             << " -> ";
 
         // get user_input as an int
         cin >> user_input;
