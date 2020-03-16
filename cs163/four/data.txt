@@ -1,0 +1,14 @@
+# meal name, venue name, price, rating, review, if it is a restaurant
+# holy fucking shit i some how get an invalid pointer when freeing this line wtf
+patty$restaurant thing$cheap ass$3 star$its good$false
+fuck$restaurant thing$cheap$4 stars$its very good$true
+trash burger 02$terrible food cart 04$6.0$2 stars$its pretty bad dont go$false
+cooked rat$a restaurant place$expensive as fuck$3 stars$its not bad$true
+fish and chips$terrible food cart 02$cheap$2 stars$its pretty bad dont go$false
+zeta burger$zeta restaurant$9.0$4 stars$its pretty good$true
+a bowl$whole bowl$cheap$5 stars$its good$false
+this is fuck dumn$not bad food cart 01$cheap$2 stars$its pretty bad dont go$false
+wtf$not bad food cart 01$cheap$2 stars$its pretty bad dont go$false
+hash cakes$not bad food cart 01$cheap$2 stars$its pretty bad dont go$false
+coffee$cafe cool place$6.0$j stars$good coffee$true
+# krabby patty$amazing restaurant thing$cheap$4 stars$its very good$true
